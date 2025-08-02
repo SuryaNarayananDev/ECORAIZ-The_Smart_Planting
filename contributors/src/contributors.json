@@ -23,7 +23,7 @@
     "points": 20,
     "currentTask": "",
     "lastAction": "Project Team Member",
-    "avatar": "https://avatars.githubusercnbontent.com/u/171135586?v=4",
+    "avatar": "https://avatars.githubusercontent.com/u/176638796?v=4",
     "git":"https://github.com/thilip18dev"
   },
   {
@@ -32,7 +32,7 @@
     "points": 20,
     "currentTask": "",
     "lastAction": "Project Team Member",
-    "avatar": "https://avatars.githubusercont,nent.com/u/171135586?v=4",
+    "avatar": "https://avatars.githubusercontent.com/u/176638796?v=4",
     "git":"https://github.com/thilip18devf"
   },
   {
@@ -86,5 +86,13 @@
     "lastAction": "logo design",
     "avatar": "https://avatars.githubusercontent.com/u/129528076?v=4",
     "git":"https://github.com/Pugal-04"
+  },  {
+    "id": 11,
+    "name": "Yazhini",
+    "points": 60,
+    "currentTask": "Tree Suggestion System",
+    "lastAction": "Data Collection",
+    "avatar": "https://avatars.githubusercontent.com/u/165694594?v=4",
+    "git":"https://github.com/yazhini4225"
   }
 ]
