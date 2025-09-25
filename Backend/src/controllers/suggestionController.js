@@ -178,13 +178,23 @@ class SuggestionController {
      */
     processImageUpload = async (req, res) => {
         try {
-            // This is a placeholder for when the .h5 model integration is implemented
-            // For now, we'll return a mock response
+            const uploadedFile = req.file;
+            const imageData = req.body.imageData;
             
-            if (!req.file && !req.body.imageData) {
+            if (!uploadedFile && !imageData) {
                 return res.status(400).json({
                     success: false,
-                    error: 'No image file provided'
+                    error: 'No image file or data provided'
+                });
+            }
+
+            // Log file information if uploaded
+            if (uploadedFile) {
+                console.log('Image uploaded:', {
+                    filename: uploadedFile.filename,
+                    originalname: uploadedFile.originalname,
+                    mimetype: uploadedFile.mimetype,
+                    size: uploadedFile.size
                 });
             }
 
@@ -201,14 +211,33 @@ class SuggestionController {
             res.status(200).json({
                 success: true,
                 message: 'Image processed successfully (mock analysis)',
+                file: uploadedFile ? {
+                    filename: uploadedFile.filename,
+                    originalname: uploadedFile.originalname,
+                    size: uploadedFile.size
+                } : null,
                 data: {
                     ...result,
-                    note: 'This is mock data. Real implementation will process uploaded image through ML model.'
+                    note: 'This is mock data. Real implementation will process uploaded image through ML model.',
+                    processingInfo: {
+                        imageProcessed: true,
+                        zonesDetected: 9,
+                        modelUsed: 'placeholder_model',
+                        timestamp: new Date().toISOString()
+                    }
                 }
             });
 
         } catch (error) {
             console.error('Error in processImageUpload:', error);
+            
+            if (error.message === 'Only image files are allowed!') {
+                return res.status(400).json({
+                    success: false,
+                    error: 'Invalid file type. Please upload an image file.'
+                });
+            }
+            
             res.status(500).json({
                 success: false,
                 error: error.message

@@ -49,3 +49,7 @@ coverage/
 # Input files
 input.txt
 *.bak
+
+# API-specific
+uploads/
+test_*.js

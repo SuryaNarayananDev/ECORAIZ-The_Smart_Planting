@@ -7,7 +7,7 @@ const { optionalAuth, rateLimit } = require('./middleware/auth');
 
 const app = express();
 
-// Connect to the database
+// Connect to the database (optional for suggestion API)
 connectDB();
 
 // Middleware
