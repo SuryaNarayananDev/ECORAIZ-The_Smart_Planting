@@ -9,6 +9,8 @@ import Header from './components/Header';
 import Home from './pages/Home';
 import Plotanalysis from './components/Plotpage';
 import SoilAnalysis from './components/Soilanalysis';
+import About from './pages/About';
+import Contact from './pages/contact';
 
 // simple route guard component
 const ProtectedRoute = ({ token, children }) => {
@@ -62,6 +64,8 @@ function App() {
           }
         />
         <Route path="/logout" element={<Logout onLogout={handleLogout} />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact/>}/>
         <Route path="*" element={<Navigate to={token ? "/profile" : "/signin"} />} />
       </Routes>
     </Router>

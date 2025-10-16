@@ -241,9 +241,9 @@ export default function SoilAnalysis() {
           </div>
 
           {/* Features List */}
-          <div className="analysis-features">
+          <div className="soilanalysis-features">
             <h4>What we analyze:</h4>
-            <div className="features-grid">
+            <div className="features-soilgrid">
               <div className="feature-item">
                 <span className="feature-icon">🌡️</span>
                 <span>Soil Temperature Zones</span>

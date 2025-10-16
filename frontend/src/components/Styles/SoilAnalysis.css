@@ -323,7 +323,7 @@
 }
 
 /* Features Grid */
-.analysis-features {
+.soilanalysis-features {
   margin-bottom: 2rem;
 }
 
@@ -333,7 +333,7 @@
   text-align: center;
 }
 
-.features-grid {
+.features-soilgrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 1rem;

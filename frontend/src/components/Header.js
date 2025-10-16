@@ -103,7 +103,7 @@ const Header = () => {
             <li><Link to="/" onClick={closeMenu}>Home</Link></li>
             <li><Link to="/Soilanalysis" onClick={closeMenu}>Soil Analysis</Link></li>
             <li><Link to="/plotanalysis" onClick={closeMenu}>Plot Analysis</Link></li>
-            <li><Link to="/portfolio" onClick={closeMenu}>About</Link></li>
+            <li><Link to="/about" onClick={closeMenu}>About</Link></li>
             <li><Link to="/contact" onClick={closeMenu}>Contact</Link></li>
           </ul>
         </nav>
