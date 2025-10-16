@@ -10,6 +10,19 @@
   transition: all 0.3s ease;
 }
 
+.home-text,.home-icon{
+  font-size: 30px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #fff;
+}
+.logo{
+  background-color: wheat;
+  width: 180px;
+  height: 50px;
+  text-align: center;
+  border-radius: 50%;
+}
+
 .header-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -162,6 +175,58 @@
   transform: translateY(-2px);
 }
 
+/* auth / profile styles */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: 12px;
+}
+
+/* container for auth links */
+.auth-area {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* subtle sign-in link */
+.auth-login {
+  color: rgba(255,255,255,0.95);
+  background: transparent;
+  padding: 8px 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: background .12s ease, transform .08s ease;
+}
+
+.auth-login:hover {
+  background: rgba(255,255,255,0.06);
+  transform: translateY(-2px);
+}
+
+/* prominent sign-up button */
+.auth-signup {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  color: #1f8b56;
+  padding: 8px 14px;
+  border-radius: 999px; /* pill */
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+
+.auth-signup:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.12);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .header-container {
@@ -224,6 +289,12 @@
   .logo h2 {
     font-size: 1.3rem;
   }
+}
+
+@media (max-width:720px) {
+  .auth-area { gap: 8px; }
+  .auth-signup { padding: 8px 10px; font-size: 0.9rem; }
+  .auth-login { padding: 8px 8px; font-size: 0.9rem; }
 }
 
 /* Header Scroll Effect */

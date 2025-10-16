@@ -62,8 +62,9 @@ const Header = () => {
     const token = localStorage.getItem('token');
     if (!token) {
       return (
-        <div className="header-right">
-          <Link to="/signup" className="auth-link">Signup</Link>
+        <div className="header-right auth-area">
+          {/* <Link to="/signin" className="auth-login">Sign in</Link> */}
+          <Link to="/signup" className="auth-signup">Sign up</Link>
         </div>
       );
     }
