@@ -1,0 +1,98 @@
+.soil-container {
+  max-width: 720px;
+  /* margin-top: 100px; */
+  margin: 36px auto;
+  margin-top: 100px;
+  padding: 20px;
+  background: #f5e3e3;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+}
+
+.soil-title {
+  margin: 0 0 16px;
+  font-size: 1.4rem;
+  color: #1f3b2e;
+  text-align: left;
+}
+
+.soil-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.file-label {
+  display: inline-block;
+  font-weight: 600;
+  color: #2d6a4f;
+}
+
+.file-label input[type="file"] {
+  display: block;
+  margin-top: 8px;
+}
+
+.preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  border: 1px dashed #dfe6e9;
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+.preview img {
+  max-width: 100%;
+  max-height: 360px;
+  border-radius: 6px;
+  object-fit: contain;
+}
+
+.soil-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.upload-btn, .cancel-btn {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.upload-btn {
+  background: #2e8b57;
+  color: #fff;
+}
+
+.upload-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.cancel-btn {
+  background: #e0e0e0;
+  color: #333;
+}
+
+.soil-status {
+  margin-top: 8px;
+  font-weight: 600;
+  color: #2f4f4f;
+}
+
+.soil-note {
+  margin-top: 8px;
+  color: #556;
+  font-size: 0.9rem;
+}
+
+.linkish {
+  color: #2e8b57;
+  cursor: pointer;
+  text-decoration: underline;
+}

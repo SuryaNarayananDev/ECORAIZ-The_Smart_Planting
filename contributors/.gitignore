@@ -1,0 +1,74 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+dist/
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.egg-info/
+.env
+.venv/
+venv/
+
+# Logs
+logs/
+*.log
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+
+# IDEs
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Test coverage
+coverage/
+*.cover
+*.lcov
+*.lcov.info
+
+# Compiled files
+*.class
+*.o
+*.out
+*.so
+*.exe
+
+# Input files
+input.txt
+*.bak
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
