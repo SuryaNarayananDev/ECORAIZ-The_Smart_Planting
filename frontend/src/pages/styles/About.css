@@ -1,10 +1,16 @@
 /* About.css */
-.about-page {
+.aboutpage-container {
   overflow-x: hidden;
 }
 
+.aboutpage-container-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
 /* Hero Section */
-.about-hero {
+.aboutpage-hero {
   position: relative;
   min-height: 70vh;
   display: flex;
@@ -14,7 +20,7 @@
   text-align: center;
 }
 
-.hero-background {
+.aboutpage-hero-background {
   position: absolute;
   top: 0;
   left: 0;
@@ -23,7 +29,7 @@
   z-index: 1;
 }
 
-.hero-pattern {
+.aboutpage-hero-pattern {
   position: absolute;
   top: 0;
   left: 0;
@@ -33,7 +39,7 @@
   opacity: 0.3;
 }
 
-.hero-content {
+.aboutpage-hero-content {
   position: relative;
   z-index: 2;
   max-width: 800px;
@@ -41,11 +47,11 @@
   padding: 4rem 2rem;
 }
 
-.hero-badge {
+.aboutpage-hero-badge {
   margin-bottom: 2rem;
 }
 
-.hero-badge span {
+.aboutpage-hero-badge span {
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
   padding: 0.5rem 1.5rem;
@@ -55,7 +61,7 @@
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.hero-title {
+.aboutpage-hero-title {
   font-size: 4rem;
   font-weight: 700;
   margin-bottom: 1rem;
@@ -65,17 +71,17 @@
   gap: 1rem;
 }
 
-.hero-icon {
+.aboutpage-hero-icon {
   font-size: 4.5rem;
 }
 
-.hero-subtitle {
+.aboutpage-hero-subtitle {
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
   opacity: 0.9;
 }
 
-.hero-description {
+.aboutpage-hero-description {
   font-size: 1.2rem;
   line-height: 1.6;
   opacity: 0.8;
@@ -83,26 +89,20 @@
   margin: 0 auto;
 }
 
-/* Common Styles */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-.section-header {
+/* Section Header */
+.aboutpage-section-header {
   text-align: center;
   margin-bottom: 4rem;
 }
 
-.section-header h2 {
+.aboutpage-section-header h2 {
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
   color: #1b5e20;
 }
 
-.section-header p {
+.aboutpage-section-header p {
   font-size: 1.2rem;
   color: #666;
   max-width: 600px;
@@ -110,19 +110,19 @@
 }
 
 /* Mission Section */
-.mission-section {
+.aboutpage-mission {
   padding: 5rem 0;
   background: #f8f9fa;
 }
 
-.mission-grid {
+.aboutpage-mission-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
   align-items: start;
 }
 
-.mission-card, .vision-card {
+.aboutpage-mission-card, .aboutpage-vision-card {
   background: white;
   padding: 3rem;
   border-radius: 20px;
@@ -131,25 +131,25 @@
   border-top: 4px solid #4caf50;
 }
 
-.mission-icon, .vision-icon {
+.aboutpage-mission-icon, .aboutpage-vision-icon {
   font-size: 4rem;
   margin-bottom: 1.5rem;
 }
 
-.mission-card h2, .vision-card h2 {
+.aboutpage-mission-card h2, .aboutpage-vision-card h2 {
   color: #1b5e20;
   margin-bottom: 1.5rem;
   font-size: 2rem;
 }
 
-.mission-card p, .vision-card p {
+.aboutpage-mission-card p, .aboutpage-vision-card p {
   color: #555;
   line-height: 1.7;
   font-size: 1.1rem;
   margin-bottom: 2rem;
 }
 
-.vision-quote {
+.aboutpage-vision-quote {
   background: linear-gradient(135deg, #e8f5e8 0%, #f1f8e9 100%);
   padding: 2rem;
   border-radius: 12px;
@@ -157,66 +157,66 @@
   position: relative;
 }
 
-.quote-icon {
+.aboutpage-quote-icon {
   font-size: 3rem;
   color: #4caf50;
   margin-bottom: 1rem;
 }
 
-.vision-quote p {
+.aboutpage-vision-quote p {
   font-style: italic;
   font-size: 1.2rem;
   color: #2e7d32;
   margin-bottom: 1rem;
 }
 
-.quote-earth {
+.aboutpage-quote-earth {
   font-size: 2rem;
 }
 
 /* Story Section */
-.story-section {
+.aboutpage-story {
   padding: 5rem 0;
 }
 
-.story-content {
+.aboutpage-story-content {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 4rem;
   align-items: start;
 }
 
-.story-point {
+.aboutpage-story-point {
   display: flex;
   gap: 2rem;
   margin-bottom: 3rem;
   align-items: flex-start;
 }
 
-.point-icon {
+.aboutpage-point-icon {
   font-size: 3rem;
   flex-shrink: 0;
 }
 
-.point-content h3 {
+.aboutpage-point-content h3 {
   color: #1b5e20;
   margin-bottom: 1rem;
   font-size: 1.5rem;
 }
 
-.point-content p {
+.aboutpage-point-content p {
   color: #555;
   line-height: 1.7;
   font-size: 1.1rem;
 }
 
-.impact-stats {
+.aboutpage-impact-stats {
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 
-.impact-stat {
+.aboutpage-impact-stat {
   background: white;
   padding: 2rem;
   border-radius: 16px;
@@ -225,31 +225,31 @@
   border-left: 4px solid #4caf50;
 }
 
-.stat-number {
+.aboutpage-stat-number {
   font-size: 2.5rem;
   font-weight: 700;
   color: #1b5e20;
   margin-bottom: 0.5rem;
 }
 
-.status-label {
-  color: #010101;
+.aboutpage-stat-label {
+  color: #666;
   font-size: 0.9rem;
 }
 
 /* Features Section */
-.features-section {
+.aboutpage-features {
   padding: 5rem 0;
   background: #f8f9fa;
 }
 
-.features-grid {
+.aboutpage-features-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
 }
 
-.feature-card {
+.aboutpage-feature-card {
   background: white;
   padding: 2.5rem;
   border-radius: 16px;
@@ -258,39 +258,39 @@
   border-top: 4px solid #4caf50;
 }
 
-.feature-card:hover {
+.aboutpage-feature-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
-.feature-header {
+.aboutpage-feature-header {
   text-align: center;
   margin-bottom: 2rem;
 }
 
-.feature-icon {
+.aboutpage-feature-icon {
   font-size: 3rem;
   margin-bottom: 1rem;
 }
 
-.feature-card h3 {
+.aboutpage-feature-card h3 {
   color: #1b5e20;
   margin-bottom: 1rem;
   font-size: 1.5rem;
 }
 
-.feature-desc {
+.aboutpage-feature-desc {
   color: #666;
   margin-bottom: 1.5rem;
   font-size: 1rem;
 }
 
-.feature-details {
+.aboutpage-feature-details {
   list-style: none;
   padding: 0;
 }
 
-.feature-details li {
+.aboutpage-feature-details li {
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
@@ -299,7 +299,7 @@
   line-height: 1.5;
 }
 
-.detail-check {
+.aboutpage-detail-check {
   color: #4caf50;
   font-weight: bold;
   flex-shrink: 0;
@@ -307,11 +307,11 @@
 }
 
 /* Process Section */
-.process-section {
+.aboutpage-process {
   padding: 5rem 0;
 }
 
-.process-steps {
+.aboutpage-process-steps {
   display: flex;
   flex-direction: column;
   gap: 3rem;
@@ -319,13 +319,13 @@
   margin: 0 auto;
 }
 
-.process-step {
+.aboutpage-process-step {
   display: flex;
   gap: 2rem;
   align-items: flex-start;
 }
 
-.step-number {
+.aboutpage-step-number {
   background: #4caf50;
   color: white;
   width: 60px;
@@ -339,28 +339,28 @@
   flex-shrink: 0;
 }
 
-.step-content {
+.aboutpage-step-content {
   flex: 1;
 }
 
-.step-content h3 {
+.aboutpage-step-content h3 {
   color: #1b5e20;
   margin-bottom: 1rem;
   font-size: 1.5rem;
 }
 
-.step-content p {
+.aboutpage-step-content p {
   color: #555;
   margin-bottom: 1.5rem;
   font-size: 1.1rem;
 }
 
-.data-parameters, .analysis-features, .recommendation-features {
+.aboutpage-data-parameters, .aboutpage-analysis-features, .aboutpage-recommendation-features {
   display: grid;
   gap: 1rem;
 }
 
-.parameter-item {
+.aboutpage-parameter-item {
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -369,29 +369,29 @@
   border-radius: 8px;
 }
 
-.param-icon {
+.aboutpage-param-icon {
   font-size: 1.5rem;
 }
 
-.param-info {
+.aboutpage-param-info {
   display: flex;
   flex-direction: column;
 }
 
-.param-info strong {
+.aboutpage-param-info strong {
   color: #333;
 }
 
-.param-info span {
+.aboutpage-param-info span {
   color: #666;
   font-size: 0.9rem;
 }
 
-.analysis-features {
+.aboutpage-analysis-features {
   grid-template-columns: repeat(2, 1fr);
 }
 
-.analysis-item {
+.aboutpage-analysis-item {
   background: #e8f5e8;
   padding: 1rem;
   border-radius: 8px;
@@ -400,11 +400,11 @@
   font-weight: 500;
 }
 
-.recommendation-features {
+.aboutpage-recommendation-features {
   grid-template-columns: repeat(3, 1fr);
 }
 
-.rec-item {
+.aboutpage-rec-item {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -415,108 +415,69 @@
   text-align: center;
 }
 
-.rec-icon {
+.aboutpage-rec-icon {
   font-size: 1.5rem;
 }
 
 /* Team Section */
-.team-section {
+.aboutpage-team {
   padding: 5rem 0;
   background: #f8f9fa;
 }
 
-.team-grid {
+.aboutpage-team-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
 }
 
-.team-card, .team-join-card {
-  background: white;
-  padding: 2rem;
+.aboutpage-team-join-card {
+  background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
+  color: white;
+  padding: 3rem;
   border-radius: 16px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
   text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.team-card:hover {
-  transform: translateY(-5px);
-}
-
-.member-avatar {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin: 0 auto 1.5rem;
-}
-
-.team-card h3 {
-  color: #1b5e20;
-  margin-bottom: 0.5rem;
-}
-
-.member-role {
-  color: #4caf50;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-
-.member-contribution {
-  color: #666;
-  font-size: 0.9rem;
-}
-
-.team-join-card {
-  background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
-  color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.join-icon {
+.aboutpage-join-icon {
   font-size: 3rem;
   margin-bottom: 1rem;
 }
 
-.team-join-card h3 {
+.aboutpage-team-join-card h3 {
   margin-bottom: 1rem;
 }
 
-.team-join-card p {
+.aboutpage-team-join-card p {
   margin-bottom: 2rem;
   opacity: 0.9;
 }
 
 /* CTA Section */
-.about-cta {
+.aboutpage-cta {
   padding: 5rem 0;
   background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
   color: white;
   text-align: center;
 }
 
-.cta-content h2 {
+.aboutpage-cta-content h2 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
 }
 
-.cta-content p {
+.aboutpage-cta-content p {
   font-size: 1.2rem;
   margin-bottom: 2rem;
   opacity: 0.9;
 }
 
-.cta-actions {
+.aboutpage-cta-actions {
   display: flex;
   gap: 1rem;
   justify-content: center;
@@ -524,30 +485,30 @@
   flex-wrap: wrap;
 }
 
-.cta-stats {
+.aboutpage-cta-stats {
   display: flex;
   justify-content: center;
   gap: 3rem;
   flex-wrap: wrap;
 }
 
-.cta-stats .stat {
+.aboutpage-cta-stats .aboutpage-stat {
   text-align: center;
 }
 
-.cta-stats .stat-number {
+.aboutpage-cta-stats .aboutpage-stat-number {
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
 }
 
-.cta-stats .stat-label {
+.aboutpage-cta-stats .aboutpage-stat-label {
   color: rgba(255, 255, 255, 0.8);
   font-size: 0.9rem;
 }
 
 /* Button Styles */
-.btn {
+.aboutpage-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -562,97 +523,97 @@
   gap: 0.5rem;
 }
 
-.btn-primary {
+.aboutpage-btn-primary {
   background: #4caf50;
   color: white;
 }
 
-.btn-primary:hover {
+.aboutpage-btn-primary:hover {
   background: #45a049;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
 }
 
-.btn-secondary {
+.aboutpage-btn-secondary {
   background: transparent;
   color: white;
   border: 2px solid white;
 }
 
-.btn-secondary:hover {
+.aboutpage-btn-secondary:hover {
   background: white;
   color: #4caf50;
   transform: translateY(-2px);
 }
 
-.btn-large {
+.aboutpage-btn-large {
   padding: 1rem 2rem;
   font-size: 1.1rem;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .hero-title {
+  .aboutpage-hero-title {
     font-size: 2.5rem;
     flex-direction: column;
     gap: 0.5rem;
   }
 
-  .mission-grid {
+  .aboutpage-mission-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
 
-  .story-content {
+  .aboutpage-story-content {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
 
-  .process-step {
+  .aboutpage-process-step {
     flex-direction: column;
     text-align: center;
   }
 
-  .analysis-features {
+  .aboutpage-analysis-features {
     grid-template-columns: 1fr;
   }
 
-  .recommendation-features {
+  .aboutpage-recommendation-features {
     grid-template-columns: 1fr;
   }
 
-  .cta-actions {
+  .aboutpage-cta-actions {
     flex-direction: column;
     align-items: center;
   }
 
-  .btn {
+  .aboutpage-btn {
     min-width: 200px;
   }
 
-  .container {
+  .aboutpage-container-inner {
     padding: 0 1rem;
   }
 }
 
 @media (max-width: 480px) {
-  .hero-title {
+  .aboutpage-hero-title {
     font-size: 2rem;
   }
 
-  .section-header h2 {
+  .aboutpage-section-header h2 {
     font-size: 2rem;
   }
 
-  .mission-card, .vision-card {
+  .aboutpage-mission-card, .aboutpage-vision-card {
     padding: 2rem 1.5rem;
   }
 
-  .feature-card {
+  .aboutpage-feature-card {
     padding: 2rem 1.5rem;
   }
 
-  .cta-stats {
+  .aboutpage-cta-stats {
     gap: 1.5rem;
   }
 }

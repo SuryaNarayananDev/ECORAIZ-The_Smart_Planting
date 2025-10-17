@@ -77,7 +77,7 @@ const Home = () => {
             Transforming dry, barren land into thriving green forests through intelligent 
             image processing and environmental analysis.
           </p>
-          <div className="hero-actions">
+          <div className="hero-actions-home">
             <Link to="/Plotanalysis" className="btn btn-primary">
               Start Analyzing
             </Link>

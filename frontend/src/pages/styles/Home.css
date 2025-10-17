@@ -92,7 +92,8 @@
   line-height: 1.6;
 }
 
-.hero-actions {
+.hero-actions-home {
+  margin-top: 10px;
   display: flex;
   gap: 1rem;
   justify-content: center;

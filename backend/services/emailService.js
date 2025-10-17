@@ -10,10 +10,16 @@ const transporter = nodemailer.createTransport({
 });
 
 exports.sendOTP = async (to, otp) => {
+  const frontend = (config.frontendUrl || '').replace(/\/+$/, '');
+  const body = [
+    `Your OTP is: ${otp}`,
+    frontend ? `Enter it here: ${frontend}/reset-password` : null
+  ].filter(Boolean).join('\n');
+
   await transporter.sendMail({
     from: config.emailUser,
     to,
     subject: 'Your OTP Code',
-    text: `Your OTP is: ${otp}`
+    text: body
   });
 };

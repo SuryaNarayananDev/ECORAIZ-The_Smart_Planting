@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import '../styles/Signin.css';
 
+// Read backend base URL from env and normalize (fallback to empty for relative path)
+const API_BASE_URL = (process.env.REACT_APP_API_BASE_URL || '').replace(/\/+$/, '');
+
 export default function Signin({ onLogin }) {
   const [form, setForm] = useState({ email: '', password: '' });
   const [msg, setMsg] = useState('');
@@ -15,7 +18,7 @@ export default function Signin({ onLogin }) {
     setMsg('');
     setLoading(true);
     try {
-      const res = await fetch('/api/users/signin', {
+      const res = await fetch(`${API_BASE_URL}/api/users/signin`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form)

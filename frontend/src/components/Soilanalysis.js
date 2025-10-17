@@ -68,7 +68,7 @@ export default function SoilAnalysis() {
       const form = new FormData();
       form.append('image', file);
 
-      const res = await fetch('/api/soil/upload', {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/soil/upload`, {
         method: 'POST',
         headers: token ? { Authorization: `Bearer ${token}` } : {},
         body: form

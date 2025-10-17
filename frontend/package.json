@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@fortawesome/react-fontawesome": "^3.1.0",
+    "cors": "^2.8.5",
     "html2canvas": "^1.4.1",
     "jspdf": "^3.0.3",
     "react": "^18.0.0",
