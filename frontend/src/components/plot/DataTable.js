@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function DataTable({ zones, onChange, getSuggestion, onBulkUpdate}) {
+function DataTable({ zones, onChange, getSuggestion, onBulkUpdate, onShowSuggestions }) {
   const [uploadStatus, setUploadStatus] = useState('');
   
   // Function to parse the uploaded .txt file
@@ -162,10 +162,13 @@ function DataTable({ zones, onChange, getSuggestion, onBulkUpdate}) {
               <td>
                 <button
                   className='suggestion-redirect'
-                  // onClick={...} // Add your redirect logic here
+                  onClick={() => onShowSuggestions && onShowSuggestions(i)}
                 >
-                  suggestion
+                  Suggestion
                 </button>
+                <div style={{ fontSize: 12, color: '#666', marginTop: 6 }}>
+                  {getSuggestion(z)}
+                </div>
               </td>
             </tr>
           ))}

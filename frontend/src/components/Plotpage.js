@@ -14,6 +14,10 @@ function Plotanalysis() {
   const [fileName, setFileName] = useState('');
   const fileInputRef = useRef(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  // Suggestions page state
+  const [view, setView] = useState('analyze'); // 'analyze' | 'suggestions'
+  const [selectedZone, setSelectedZone] = useState(null);
+  const [suggestions, setSuggestions] = useState([]);
 
   // Compact header on scroll
   useEffect(() => {
@@ -89,6 +93,21 @@ function Plotanalysis() {
     return suitable.map(t => `${t.name} (${t.role})`).join(', ') || '❌ No suitable match';
   };
 
+  // Get suitable species as objects for the "suggestions page"
+  const getSuitableSpecies = (zone) => {
+    if (!zone || zone.pH === '' || zone.humidity === '' || zone.moisture === '') return [];
+    return forestSpeciesDB.filter((tree) => {
+      const [minPH, maxPH] = tree.pH;
+      const [minHum, maxHum] = tree.humidity;
+      const [minMoist, maxMoist] = tree.moisture;
+      return (
+        zone.pH >= minPH && zone.pH <= maxPH &&
+        zone.humidity >= minHum && zone.humidity <= maxHum &&
+        zone.moisture >= minMoist && zone.moisture <= maxMoist
+      );
+    });
+  };
+
   const analyze = () => {
     const scored = zones.map((z, i) => {
       let score = 0;
@@ -120,6 +139,66 @@ function Plotanalysis() {
       fileInputRef.current.value = '';
     }
   };
+
+  // Open suggestions "page" for a specific zone
+  const handleShowSuggestions = (zoneIndex) => {
+    const zone = zones[zoneIndex];
+    setSelectedZone({ index: zoneIndex, zone });
+    setSuggestions(getSuitableSpecies(zone));
+    setView('suggestions');
+  };
+
+  // Render suggestions page
+  if (view === 'suggestions') {
+    return (
+      <div className="app-container">
+        <header role="banner" className={`app-header ${isScrolled ? 'scrolled' : ''}`}>
+          <div className="header-content">
+            <div className="brand">
+              <div aria-hidden="true" className="brand-logo">ER</div>
+              <div className="brand-text">
+                <h1>ECORAIZ</h1>
+                <div className="subtitle">Smart Planting</div>
+              </div>
+            </div>
+            <div className="header-actions">
+              <button type="button" className="upload-btn" onClick={() => setView('analyze')}>
+                ← Back
+              </button>
+            </div>
+          </div>
+        </header>
+
+        <main className="main-content-wrapper">
+          <div className="main-content" style={{ padding: '16px' }}>
+            <h2 style={{ marginBottom: 6 }}>
+              Sustainable Trees for Zone {selectedZone ? selectedZone.index + 1 : ''}
+            </h2>
+            {selectedZone && (
+              <div style={{ marginBottom: 16, color: '#555' }}>
+                Soil: pH {selectedZone.zone.pH || '-'}, Humidity {selectedZone.zone.humidity || '-'}%, Moisture {selectedZone.zone.moisture || '-'}
+              </div>
+            )}
+            {suggestions.length === 0 ? (
+              <div>No suitable trees found for this plot.</div>
+            ) : (
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                {suggestions.map((t, idx) => (
+                  <li key={`${t.name}-${idx}`} style={{ marginBottom: 12, padding: 12, border: '1px solid #e0e0e0', borderRadius: 8 }}>
+                    <div style={{ fontWeight: 600 }}>{t.name}</div>
+                    <div style={{ fontSize: 13, color: '#444' }}>{t.role}</div>
+                    <div style={{ fontSize: 12, color: '#666', marginTop: 4 }}>
+                      Lifespan: {t.lifespan} • pH {t.pH[0]}–{t.pH[1]} • Humidity {t.humidity[0]}–{t.humidity[1]}% • Moisture {t.moisture[0]}–{t.moisture[1]}%
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </main>
+      </div>
+    );
+  }
 
   return (
     <div className="app-container">
@@ -173,6 +252,7 @@ function Plotanalysis() {
               onChange={handleChange}
               getSuggestion={getForestSuggestions}
               onBulkUpdate={handleBulkUpdate}
+              onShowSuggestions={handleShowSuggestions}
             />
           </div>
         </div>

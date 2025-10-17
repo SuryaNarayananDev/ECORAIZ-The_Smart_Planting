@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './styles/Signup.css';
 
+// Read backend base URL from env and normalize (fallback to empty for relative path)
+const API_BASE_URL = (process.env.REACT_APP_API_BASE_URL || '').replace(/\/+$/, '');
+
 export default function Signup() {
   const [form, setForm] = useState({ name: '', email: '', password: '' });
   const [msg, setMsg] = useState('');
@@ -10,7 +13,7 @@ export default function Signup() {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    const res = await fetch('/api/users/signup', {
+    const res = await fetch(`${API_BASE_URL}/api/users/signup`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(form)

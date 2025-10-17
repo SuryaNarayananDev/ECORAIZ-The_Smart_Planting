@@ -105,7 +105,6 @@ By transforming neglected land into green zones, EcoRaiz helps combat:
 
 ### 💡 **Project Idea by**
 **Salai Dhean Arasan**  
-[🌐 Visit Website](https://your-link-here.com)
 
 ---
 

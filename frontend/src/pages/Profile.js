@@ -15,10 +15,12 @@ export default function Profile({ token }) {
     fetchProfile();
   }, [token]);
 
+  
+const API_BASE_URL = (process.env.REACT_APP_API_BASE_URL || '').replace(/\/+$/, '');
   const fetchProfile = async () => {
     try {
       setLoading(true);
-      const res = await fetch('/api/users/profile', {
+      const res = await fetch(`${API_BASE_URL}/api/users/profile`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       

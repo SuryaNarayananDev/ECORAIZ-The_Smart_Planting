@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 
+// Read backend base URL from env and normalize (fallback to empty for relative path)
+const API_BASE_URL = (process.env.REACT_APP_API_BASE_URL || '').replace(/\/+$/, '');
+
 export default function ForgotPassword() {
   const [email, setEmail] = useState('');
   const [otp, setOtp] = useState('');
@@ -9,7 +12,7 @@ export default function ForgotPassword() {
 
   const handleSendOtp = async e => {
     e.preventDefault();
-    const res = await fetch('/api/users/forgot-password', {
+    const res = await fetch(`${API_BASE_URL}/api/users/forgot-password`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email })
@@ -21,7 +24,7 @@ export default function ForgotPassword() {
 
   const handleReset = async e => {
     e.preventDefault();
-    const res = await fetch('/api/users/reset-password', {
+    const res = await fetch(`${API_BASE_URL}/api/users/reset-password`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, otp, newPassword })
