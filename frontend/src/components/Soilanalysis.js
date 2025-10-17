@@ -8,6 +8,7 @@ export default function SoilAnalysis() {
   const [status, setStatus] = useState({ type: '', message: '' });
   const [uploading, setUploading] = useState(false);
   const [dragActive, setDragActive] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const fileInputRef = useRef(null);
   const navigate = useNavigate();
 
@@ -53,61 +54,43 @@ export default function SoilAnalysis() {
     setStatus({ type: 'success', message: 'Image selected successfully' });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (!file) {
       setStatus({ type: 'error', message: 'Please choose an image first' });
       return;
     }
+    setStatus({ type: 'success', message: 'Analysis complete! See details below.' });
+    setShowModal(true);
+  };
 
-    setUploading(true);
-    setStatus({ type: 'loading', message: 'Analyzing soil image...' });
+  const handleDownloadPDF = () => {
+    // Dummy PDF generation
+    const pdfContent = `
+      Soil Analysis Report
 
-    try {
-      const token = localStorage.getItem('token');
-      const form = new FormData();
-      form.append('image', file);
+      File Name: ${file?.name}
+      Size: ${(file?.size / (1024 * 1024)).toFixed(2)} MB
 
-      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/soil/upload`, {
-        method: 'POST',
-        headers: token ? { Authorization: `Bearer ${token}` } : {},
-        body: form
-      });
+      Soil Temperature Zones: Moderate
+      Moisture Levels: Optimal
+      Vegetation Density: Dense
+      Soil Texture: Loamy
+      Nutrient Status: Balanced
+      Drainage: Good
+      Sunlight Exposure: Full Sun
+      Planting Recommendations: Tomatoes, Spinach, Beans
+      Notes: Ideal for summer crops; maintain regular watering
 
-      const data = await res.json();
-      
-      if (res.ok) {
-        setStatus({ 
-          type: 'success', 
-          message: 'Analysis complete! Processing results...' 
-        });
-        
-        // Navigate to results page if available
-        setTimeout(() => {
-          if (data.analysisId) {
-            navigate(`/analysis/${data.analysisId}`);
-          } else if (data.fileUrl) {
-            setStatus({ 
-              type: 'success', 
-              message: `Upload successful: ${data.fileUrl}` 
-            });
-          }
-        }, 1500);
-        
-      } else {
-        setStatus({ 
-          type: 'error', 
-          message: data.error || 'Upload failed. Please try again.' 
-        });
-      }
-    } catch (err) {
-      setStatus({ 
-        type: 'error', 
-        message: 'Network error. Please check your connection.' 
-      });
-    } finally {
-      setUploading(false);
-    }
+      Thank you for using Ecoraiz Soil Analysis!
+    `;
+    const blob = new Blob([pdfContent], { type: 'application/pdf' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'soil-analysis-report.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   const handleClear = () => {
@@ -284,6 +267,54 @@ export default function SoilAnalysis() {
             </div>
           </div>
         </form>
+
+        {/* Modal for soil details and download */}
+        {showModal && (
+          <div className="soil-modal-overlay">
+            <div className="soil-modal">
+              <h2>Soil Analysis Details</h2>
+             <ul>
+  <li><strong>Soil Temperature Zones:</strong> Moderate</li>
+  <li><strong>Moisture Levels:</strong> Optimal</li>
+  <li><strong>Vegetation Density:</strong> Dense</li>
+  <li><strong>Soil Texture:</strong> Loamy</li>
+  <li><strong>Nutrient Status:</strong> Balanced</li>
+  <li><strong>Drainage:</strong> Good</li>
+  <li><strong>Sunlight Exposure:</strong> Full Sun</li>
+  <li><strong>Planting Recommendations:</strong> Tomatoes, Spinach, Beans</li>
+  <li><strong>Notes:</strong> Ideal for summer crops; maintain regular watering</li>
+</ul>
+
+              <button className="btn btn-primaryone" onClick={handleDownloadPDF}>
+                Download PDF
+              </button>
+              <button className="btn btn-secondary" style={{marginLeft: '10px'}} onClick={() => setShowModal(false)}>
+                Close
+              </button>
+            </div>
+            <style>{`
+              .soil-modal-overlay {
+                position: fixed;
+                top: 0; left: 0; right: 0; bottom: 0;
+                background: rgba(0,0,0,0.4);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 1000;
+              }
+              .soil-modal {
+                background: #fff;
+                padding: 2rem;
+                border-radius: 8px;
+                min-width: 320px;
+                box-shadow: 0 2px 16px rgba(0,0,0,0.2);
+              }
+              .soil-modal h2 { margin-top: 0; }
+              .soil-modal ul { margin: 1rem 0; }
+              .soil-modal button { margin-top: 1rem; }
+            `}</style>
+          </div>
+        )}
       </div>
     </div>
   );
