@@ -6,7 +6,11 @@ const transporter = nodemailer.createTransport({
   auth: {
     user: config.emailUser,
     pass: config.emailPass
-  }
+  },
+  // Add timeout and connection settings
+  connectionTimeout: 10000, // 10 seconds
+  socketTimeout: 10000, // 10 seconds
+  greetingTimeout: 10000 // 10 seconds
 });
 
 // Test transporter connection at startup (logs error if misconfigured)
