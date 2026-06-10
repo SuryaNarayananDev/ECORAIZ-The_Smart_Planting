@@ -11,6 +11,8 @@ import Plotanalysis from './components/Plotpage';
 import SoilAnalysis from './components/Soilanalysis';
 import About from './pages/About';
 import Contact from './pages/contact';
+import './App.css';
+
 
 // simple route guard component
 const ProtectedRoute = ({ token, children }) => {
