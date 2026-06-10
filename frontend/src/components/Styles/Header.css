@@ -16,11 +16,15 @@
   color: #fff;
 }
 .logo{
-  background-color: wheat;
-  width: 180px;
-  height: 50px;
-  text-align: center;
+  background-color: rgb(11, 89, 13);
+  width: 200px;
+  height: 60px;
+  justify-content: center;
+  align-items: center;
   border-radius: 50%;
+  /* margin-left: 10px;
+  margin-right:auto; */
+  display: flex;
 }
 
 .header-container {
